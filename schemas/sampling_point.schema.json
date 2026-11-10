@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://molonari.example/schemas/sampling_point.schema.json",
+  "title": "MOLONARI Sampling Point metadata",
+  "type": "object",
+  "required": [
+    "schema",
+    "sampling_point_id"
+  ],
+  "properties": {
+    "schema": {
+      "const": 1
+    },
+    "sampling_point_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "legacy_source": {
+      "type": "object"
+    },
+    "pressure_sensor": {
+      "type": "object"
+    },
+    "shaft": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "logger": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "temperature_sensor_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "sensor_depths_m": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "dates": {
+      "type": "object"
+    },
+    "geometry": {
+      "type": "object"
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}

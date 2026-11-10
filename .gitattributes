@@ -1,0 +1,7 @@
+# Les fichiers bruts doivent rester byte-for-byte identiques.
+raw_data/** -text
+
+# Fichiers descriptifs et sorties canoniques.
+*.json text eol=lf
+*.md text eol=lf
+processed_data/** text eol=lf

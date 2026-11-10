@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://molonari.example/schemas/lab.schema.json",
+  "title": "MOLONARI virtual lab",
+  "type": "object",
+  "required": [
+    "schema",
+    "calibrations",
+    "sampling_points"
+  ],
+  "properties": {
+    "schema": {
+      "const": 1
+    },
+    "calibrations": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "beta",
+          "v_ref",
+          "intercept",
+          "dudh",
+          "dudt"
+        ],
+        "properties": {
+          "beta": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "v_ref": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "intercept": {
+            "type": "number"
+          },
+          "dudh": {
+            "type": "number",
+            "not": {
+              "const": 0
+            }
+          },
+          "dudt": {
+            "type": "number"
+          },
+          "t0_k": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "sampling_points": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "calibration"
+        ],
+        "properties": {
+          "calibration": {
+            "type": "string"
+          },
+          "devices": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "params": {
+            "type": "object"
+          },
+          "v1": {
+            "type": "object"
+          },
+          "v2": {
+            "type": "object"
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": false
+}

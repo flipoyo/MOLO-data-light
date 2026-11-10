@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "sampling_point_id": "Point034",
+  "legacy_source": {
+    "repository": "flipoyo/MOLONARI-data",
+    "metadata_file": "SamplingPoints/Point034/Point034_info.csv",
+    "shaft_file": "Laboratory/shafts/S007.csv"
+  },
+  "pressure_sensor": {
+    "id": "P508",
+    "calibration_id": "P508_T001"
+  },
+  "shaft": {
+    "id": "S007",
+    "logger": "HOBO",
+    "temperature_sensor_id": "T001",
+    "sensor_depths_m": [
+      0.1,
+      0.2,
+      0.3,
+      0.4
+    ]
+  },
+  "dates": {
+    "implantation": "2016-06-27T12:00:00",
+    "measurement_reference": "2016-07-12T10:30:00",
+    "source_timezone": "GMT+01:00"
+  },
+  "geometry": {
+    "river_bed_m": 0.505,
+    "delta_h_m": 0.0
+  },
+  "notes": [
+    "Métadonnées normalisées depuis les fichiers historiques ; conserver les fichiers sources comme référence.",
+    "Vérifier la convention exacte de référence des profondeurs avant de les utiliser dans un calcul."
+  ]
+}

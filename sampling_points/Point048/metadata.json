@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "sampling_point_id": "Point048",
+  "legacy_source": {
+    "repository": "flipoyo/MOLONARI1D",
+    "directory": "dataAnalysis/raw_data/point48_14_04_18",
+    "pressure_file": "p46_p606_p_14_04_18.csv",
+    "temperature_file": "t46_t_14_04_18.csv",
+    "metadata_file": "point48_info.txt",
+    "geometry_file": "geometrie.txt",
+    "pressure_calibration": "dataAnalysis/configuration/pressure_sensors/P606.csv"
+  },
+  "pressure_sensor": {
+    "id": "P606",
+    "calibration_id": "P606",
+    "logger": "Raspberry Pi"
+  },
+  "temperature_channels": {
+    "source_units": "degC",
+    "source_values": "already converted by historical acquisition/export",
+    "channel_order": [
+      "temperature_depth_1_C",
+      "temperature_depth_2_C",
+      "temperature_depth_3_C",
+      "temperature_depth_4_C"
+    ],
+    "depths_m": [
+      0.1,
+      0.2,
+      0.3,
+      0.4
+    ]
+  },
+  "dates": {
+    "first": "2018-04-14T13:45:00",
+    "last": "2018-10-31T20:20:03",
+    "samples": 19200,
+    "source_timezone": "unknown",
+    "treatment": "timestamps kept as naive wall-clock values; no UTC offset applied"
+  },
+  "geometry": {
+    "river_bed_depth_cm": null,
+    "delta_h_cm": null,
+    "notes": "The source geometry file does not provide values for the river-bed depth or delta_h."
+  },
+  "notes": [
+    "Raw CSV files are copied from flipoyo/MOLONARI1D without data cleaning or resampling.",
+    "Pressure input is already in volts and is processed with the P606 pressure calibration.",
+    "The historical period field states 200 days, 6:35:00; the exported first/last timestamps span approximately 200 days.",
+    "Temperature calibration beta and v_ref are not used for this source because all four temperature channels and the stream temperature are already expressed in degrees Celsius."
+  ]
+}

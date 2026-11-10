@@ -1,0 +1,57 @@
+{
+  "calibration": {
+    "sha256": "5fddc4217e16e5bdc02eeeecb0980ed32a7c36e8437e56ab9b1811b621601374",
+    "values": {
+      "beta": 3834.0,
+      "dudh": -1.462495,
+      "dudt": 0.001474,
+      "intercept": 1.210344,
+      "t0_k": 298.15,
+      "v_ref": 3.3
+    }
+  },
+  "code": {
+    "package_digest": "f6855b1e56de1fd7d7e0c0aa760255e485d7584616c75849e7df590797c0cd80"
+  },
+  "env": {
+    "numpy": "2.5.4",
+    "pandas": "3.1.1",
+    "python": "3.12.16"
+  },
+  "inputs": {
+    "digest": "725c9b010c71d1129cb3aa6bb733da19e388174655c4aef34c652420e164fe96",
+    "files": {
+      "P_measures.csv": "f35eb0a90d583174ebc92bfe318653415b7fcd4d91fd4911d83d9b1e5d9e29e7",
+      "README.md": "5f65ec36818137cd8379af6b36a38476a3cd8424bb9da49ce6f6c304c66a3c5c",
+      "T_measures.csv": "791a49aad182ebc319dc9c7230a2aaa60bd5b7acb9a2540a8627dc327b8a3459",
+      "point034_P_measures.csv": "f35eb0a90d583174ebc92bfe318653415b7fcd4d91fd4911d83d9b1e5d9e29e7",
+      "point034_T_measures.csv": "791a49aad182ebc319dc9c7230a2aaa60bd5b7acb9a2540a8627dc327b8a3459"
+    }
+  },
+  "lab": {
+    "calibration": "P508_T001",
+    "devices": [],
+    "digest": "510d16559e4be4d639b32cfd122b82a9b9cc6bb25de99d7ad81af2908990eb6c",
+    "point": "Point034"
+  },
+  "outputs": {
+    "digest": "1fa92a1d14ebc5ee778eed8fde88cf4d644b3ad9b4615c589dac01d92302a5c1",
+    "files": {
+      "measures.csv": "73caac1d34e69bf1cf09a39642fa7dbf16a2f6bdf721638e4b55d349a7f7be0e"
+    },
+    "git_tree": "24ff2d646c31202339a3c69552760ca5fb50f2d3"
+  },
+  "params": {
+    "date_fmt": "%m/%d/%y %I:%M:%S %p",
+    "dedupe": true,
+    "rules": {},
+    "utc_offset_hours": 1.0,
+    "window": null
+  },
+  "report": {
+    "nan_rows": 0
+  },
+  "schema": 1,
+  "step": "v1_to_ready",
+  "twin_version": "0.1.0"
+}

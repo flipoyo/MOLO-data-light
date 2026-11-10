@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "calibrations": {
+    "P508_T001": {
+      "beta": 3834,
+      "v_ref": 3.3,
+      "intercept": 1.210344,
+      "dudh": -1.462495,
+      "dudt": 0.001474,
+      "t0_k": 298.15
+    },
+    "P606": {
+      "beta": null,
+      "v_ref": null,
+      "intercept": 1.27109693909151,
+      "dudh": 1.01010102487901,
+      "dudt": 0.00220946701100414,
+      "t0_k": 298.15
+    }
+  },
+  "sampling_points": {
+    "Point034": {
+      "calibration": "P508_T001",
+      "devices": [],
+      "v1": {
+        "date_fmt": "%m/%d/%y %I:%M:%S %p",
+        "utc_offset_hours": 1
+      }
+    },
+    "Point048": {
+      "calibration": "P606",
+      "devices": [],
+      "legacy_csv": {
+        "date_fmt": "%d/%m/%Y %H:%M:%S",
+        "utc_offset_hours": null,
+        "source_timezone": "unknown_naive_preserved"
+      }
+    }
+  }
+}
