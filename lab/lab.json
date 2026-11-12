@@ -36,5 +36,6 @@
         "source_timezone": "unknown_naive_preserved"
       }
     }
-  }
+  },
+  "thermal_calibrations": {}
 }
