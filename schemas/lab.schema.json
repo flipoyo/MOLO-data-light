@@ -25,11 +25,17 @@
         ],
         "properties": {
           "beta": {
-            "type": "number",
+            "type": [
+              "number",
+              "null"
+            ],
             "exclusiveMinimum": 0
           },
           "v_ref": {
-            "type": "number",
+            "type": [
+              "number",
+              "null"
+            ],
             "exclusiveMinimum": 0
           },
           "intercept": {
@@ -52,6 +58,13 @@
         "additionalProperties": false
       }
     },
+    "thermal_calibrations": {
+      "type": "object",
+      "description": "Registre indexé par génération matérielle ; fichiers sous calibration/thermal/.",
+      "additionalProperties": {
+        "$ref": "#/$defs/thermalCalibrationSpec"
+      }
+    },
     "sampling_points": {
       "type": "object",
       "additionalProperties": {
@@ -62,6 +75,20 @@
         "properties": {
           "calibration": {
             "type": "string"
+          },
+          "hardware_generation": {
+            "type": "string"
+          },
+          "thermal_calibration": {
+            "oneOf": [
+              {
+                "type": "string",
+                "description": "Identifiant dans thermal_calibrations."
+              },
+              {
+                "$ref": "#/$defs/thermalCalibrationSpec"
+              }
+            ]
           },
           "devices": {
             "type": "array",
@@ -78,10 +105,55 @@
           },
           "v2": {
             "type": "object"
+          },
+          "legacy_csv": {
+            "type": "object"
           }
         },
         "additionalProperties": true
       }
+    }
+  },
+  "$defs": {
+    "thermalCalibrationSpec": {
+      "type": "object",
+      "required": [
+        "table"
+      ],
+      "properties": {
+        "table": {
+          "type": "string",
+          "minLength": 1
+        },
+        "columns": {
+          "type": "object",
+          "required": [
+            "external",
+            "internal",
+            "pressure"
+          ],
+          "properties": {
+            "external": {
+              "type": "string"
+            },
+            "internal": {
+              "type": "string"
+            },
+            "pressure": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "external_series": {
+          "type": "string"
+        },
+        "dt_seconds": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
+      },
+      "additionalProperties": false
     }
   },
   "additionalProperties": false
