@@ -12,6 +12,8 @@ Ce dépôt contient les premiers jeux importés depuis les archives historiques 
 MOLONARI-DATA/
 ├── lab/
 │   └── lab.json
+├── calibration/
+│   └── thermal/<generation>/RECORDS.csv
 ├── sampling_points/
 │   └── Point034/
 │       └── metadata.json
