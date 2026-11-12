@@ -27,7 +27,7 @@ MOLONARI-DATA/
 
 ### Rôle des répertoires
 
-- `lab/lab.json` : paramètres partagés du laboratoire, calibrations et association entre appareils et Sampling Points.
+- `lab/lab.json` : paramètres partagés du laboratoire, calibrations instrumentales et association entre appareils et Sampling Points. Le registre `thermal_calibrations` associe les générations matérielles aux expériences thermiques.\n- `calibration/thermal/<generation>/` : fichiers expérimentaux de calibration thermique originaux (par exemple `RECORDS.csv`), conservés séparément des mesures de terrain. Le pipeline les lit sans les modifier et inscrit leur SHA-256 dans le manifeste.
 - `sampling_points/<ID>/metadata.json` : description physique et historique du point (shaft, capteurs, profondeurs, dates de référence).
 - `raw_data/<ID>/` : fichiers d'origine. Ils sont immuables après import ; `ingest.json` enregistre leurs empreintes.
 - `processed_data/<ID>/` : sorties calculées par le pipeline (`data/measures.csv` et `manifest.json`).
@@ -108,3 +108,43 @@ La première commande valide les deux CSV et crée `raw_data/Point048/ingest.jso
 - `molonari-pipeline` : lit ce dépôt comme `DATA_ROOT`, convertit les données et écrit les sorties.
 - `MOLONARI1D` : référence historique pour le modèle conceptuel des Sampling Points et les anciens traitements.
 - `ComplexGitSync` : organise les dépôts et calcule les empreintes de l'Operating Space. Il ne remplace ni les empreintes d'ingestion ni les manifestes métier du pipeline.
+
+
+## Calibrations thermiques des capteurs de pression
+
+Les expériences réalisées en enceinte climatique (température externe, température interne du boîtier et pression
+mesurées simultanément) sont stockées dans `calibration/thermal/<generation>/`. Ce dossier est réservé aux données
+expérimentales originales : ne pas les placer dans `lab/` ni dans `raw_data/<Point>/`.
+
+Le registre se trouve dans `lab/lab.json`. Exemple à compléter uniquement après identification des colonnes et de
+la génération matérielle :
+
+```json
+{
+  "thermal_calibrations": {
+    "P508_generation_1": {
+      "table": "calibration/thermal/P508_generation_1/RECORDS.csv",
+      "columns": {
+        "external": "Value_Temperature_2",
+        "internal": "Value_Temperature_3",
+        "pressure": "Value_Pressure"
+      },
+      "external_series": "TempBed"
+    }
+  },
+  "sampling_points": {
+    "Point034": {
+      "calibration": "P508_T001",
+      "hardware_generation": "P508_generation_1"
+    }
+  }
+}
+```
+
+Le nom de `hardware_generation` doit correspondre à une clé de `thermal_calibrations`. Plusieurs points de même
+génération peuvent ainsi partager la même expérience de calibration. Si un point n'a pas de génération connue ou
+qu'aucune expérience ne lui est associée, aucune correction thermique n'est appliquée.
+
+**Aucune expérience thermique réelle n'est ajoutée dans ce commit.** Le dossier est un emplacement dédié, pas une
+validation scientifique : avant d'activer une entrée, confirmer les trois colonnes, les unités de pression et de
+température, la régularité temporelle et l'absence de double comptage avec le coefficient instrumental `dU/dT`.
