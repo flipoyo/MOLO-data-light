@@ -29,7 +29,8 @@ MOLONARI-DATA/
 
 ### Rôle des répertoires
 
-- `lab/lab.json` : paramètres partagés du laboratoire, calibrations instrumentales et association entre appareils et Sampling Points. Le registre `thermal_calibrations` associe les générations matérielles aux expériences thermiques.\n- `calibration/thermal/<generation>/` : fichiers expérimentaux de calibration thermique originaux (par exemple `RECORDS.csv`), conservés séparément des mesures de terrain. Le pipeline les lit sans les modifier et inscrit leur SHA-256 dans le manifeste.
+- `lab/lab.json` : paramètres partagés du laboratoire, calibrations instrumentales et association entre appareils et Sampling Points. Le registre `thermal_calibrations` associe les générations matérielles aux expériences thermiques.
+- `calibration/thermal/<generation>/` : fichiers expérimentaux de calibration thermique originaux (par exemple `RECORDS.csv`), conservés séparément des mesures de terrain. Le pipeline les lit sans les modifier et inscrit leur SHA-256 dans le manifeste.
 - `sampling_points/<ID>/metadata.json` : description physique et historique du point (shaft, capteurs, profondeurs, dates de référence).
 - `raw_data/<ID>/` : fichiers d'origine. Ils sont immuables après import ; `ingest.json` enregistre leurs empreintes.
 - `processed_data/<ID>/` : sorties calculées par le pipeline (`data/measures.csv` et `manifest.json`).
