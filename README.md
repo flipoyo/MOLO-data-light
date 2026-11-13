@@ -1,6 +1,6 @@
 # MOLONARI-DATA
 
-Dépôt de données du projet MOLONARI. Il sépare les métadonnées du laboratoire, les mesures brutes conservées sans modification et les données traitées produites par `molonari-pipeline`.
+Dépôt de données du projet MOLONARI. Il sépare les métadonnées du laboratoire, les mesures brutes conservées sans modification et les données traitées produites par `molonari-data-process`.
 
 ## État de la migration
 
